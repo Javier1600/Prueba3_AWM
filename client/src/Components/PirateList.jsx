@@ -27,7 +27,11 @@ const PirateList = () => {
     const navigate = useNavigate()
     
     return(
-        <div>
+        <div className="container">
+            <div>
+                <h1>Pirate Crew</h1>
+                <button onClick={e=>navigate('/pirate/new')}>Add Pirate</button>
+            </div>
             {
                 pirates.map(
                     (pirate,ind) => {   

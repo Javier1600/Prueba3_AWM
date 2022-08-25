@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Link, useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -20,13 +20,13 @@ const New = () =>{
     const GoToHome = () => {
         navigate('/')
     }
-    
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
         axios.post(`http://127.0.0.1:8000/api/pirate/new`, {name,imageURL,treasures,phrase,crewProsition,pegLeg,eyePatch,hookHand})
             .then(res => {
                 console.log("Succesfully created",res)
-                setAuthorError("")
+                setError("")
                 setCreationStatus("Pirate has been successfully created")
                 setTimeout(GoToHome,1000)
             })
@@ -64,12 +64,19 @@ const New = () =>{
                 }
             });
     }
-
+    const chekboxesHandler = () =>{
+        var chkLeg = document.getElementById('PegLeg'); 
+        var chkEye = document.getElementById('EyePatch'); 
+        var chkHand = document.getElementById('HookHand'); 
+        setPegLeg(chkLeg.checked)
+        setEyePatch(chkEye.checked)
+        setHookHand(chkHand.checked)
+    }
     return(
         <div className="container">
             <div>
                 <h1>Add Pirate</h1>
-                <button  className="btn btn-primary" onClick={e =>{GoToHome()}}>Cancel</button>             
+                <button  className="btn btn-primary" onClick={e =>{GoToHome()}}>Crew Board</button>             
             </div>
             <form onSubmit={onSubmitHandler} className="info">
                 <div id="conteninfo">
@@ -84,19 +91,26 @@ const New = () =>{
                         <input type="text" name="phrase" onChange={e=>setPhrase(e.target.value)} value={phrase}/><br/><br/>
                     </div>
                     <div>
-                        <select name="position" onChange={e=>{setCrewProsition(document.getElementByName("position").value)}}>
+                        <label htmlFor="position">Crew Position</label>
+                        <select className="position" onChange={e=>setCrewProsition(e.target.value)}>
+                            <option value="Captain" selected>Captain</option>
                             <option value="First Mate">First Mate</option>
                             <option value="Quarter Master">Quarter Master</option>
                             <option value="Boatswain">Boatswain</option>
                             <option value="Powder Monkey">Powder Monkey</option>
                         </select>
-                        <input type="checkbox" name="Peg Leg" id="PegLeg" onChange={e => {setPegLeg(this.checked)}}/><br></br>
-                        <input type="checkbox" name="Eye Patch" id="EyePatch" onChange={e => {setEyePatch(this.checked)}}/><br></br>
-                        <input type="checkbox" name="Hook Hand" id="HookHand" onChange={e => {setHookHand(this.checked)}}/><br></br>
+                        
+                        <br/>
+                        <input type="checkbox" name="Peg Leg" id="PegLeg" value="Peg Leg" onSelect={chekboxesHandler}></input>
+                        <label htmlFor="Peg Leg">Peg Leg</label><br></br>
+                        <input type="checkbox" name="Eye Patch" id="EyePatch" value="Eye Patch" onChange={chekboxesHandler}/>
+                        <label htmlFor="Eye Patch">Eye Patch</label><br></br>
+                        <input type="checkbox" name="Hook Hand" id="HookHand" value="Hook Hand" onChange={chekboxesHandler}/>
+                        <label htmlFor="Hook Hand">Hook Hand</label><br></br>
                     </div>
                     <p id="error">{error}</p>
-                    <input  className="btn btn-primary" type="submit" value="Submit"/><br/>
                     <label id="valido">{creationStatus}</label>
+                    <input  className="btn btn-primary" type="submit" value="Add Pirate"/><br/>
                 </div>
             </form>
         </div>
