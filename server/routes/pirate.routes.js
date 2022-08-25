@@ -8,4 +8,3 @@ module.exports = function(app){
     app.put('/api/pirate/:id/', PirateController.updatePirate);
     app.delete('/api/pirate/:id', PirateController.deletePirate);
 }
-
