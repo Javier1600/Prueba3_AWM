@@ -28,7 +28,7 @@ const PirateList = () => {
     
     return(
         <div className="container">
-            <div>
+            <div id="encabezado">
                 <h1>Pirate Crew</h1>
                 <button onClick={e=>navigate('/pirate/new')}>Add Pirate</button>
             </div>

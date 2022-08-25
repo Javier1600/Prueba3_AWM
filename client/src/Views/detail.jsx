@@ -13,6 +13,9 @@ const Detail = (props) => {
 
     return(
         <div>
+            <div id="encabezado">
+                <h1>{pirate.name}</h1>
+            </div>
             <div>
                 <img src={pirate.imageURL} alt="" />
                 <h1>{pirate.phrase}</h1>

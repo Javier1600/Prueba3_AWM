@@ -74,7 +74,7 @@ const New = () =>{
     }
     return(
         <div className="container">
-            <div>
+            <div id="encabezado">
                 <h1>Add Pirate</h1>
                 <button  className="btn btn-primary" onClick={e =>{GoToHome()}}>Crew Board</button>             
             </div>
