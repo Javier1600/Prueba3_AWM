@@ -32,15 +32,15 @@ const Detail = (props) => {
                     </tr>
                     <tr>
                         <td>Peg leg:   </td>
-                        {pirate.treasures ?<td>No</td> : <td>Yes</td>}
+                        {pirate.treasures ?<td>Yes</td> : <td>No</td>}
                     </tr>
                     <tr>
                         <td>Eye patch:   </td>
-                        {pirate.eyePatch ?<td>No</td> : <td>Yes</td>}
+                        {pirate.eyePatch ?<td>Yes</td> : <td>No</td>}
                     </tr>
                     <tr>
                         <td>Hook hand:   </td>
-                        {pirate.hookHand ? <td>No</td> : <td>Yes</td>}
+                        {pirate.hookHand ? <td>Yes</td> : <td>No</td>}
                     </tr>
                 </table>
             </div>

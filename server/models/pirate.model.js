@@ -27,11 +27,11 @@ const PirateScheme = new mongoose.Schema({
         required: [true, 'Peg leg is mandatory']
     },
     eyePatch: {
-        type: String,
+        type: Boolean,
         required: [true, 'Eye patch is mandatory']
     },
     hookHand: {
-        type: String,
+        type: Boolean,
         required: [true, 'Hook hand is mandatory']
     }
 

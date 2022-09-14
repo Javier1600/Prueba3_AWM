@@ -9,9 +9,9 @@ const New = () =>{
     const [treasures,setTreasures] = useState("");
     const [phrase, setPhrase] = useState("");
     const [crewProsition, setCrewProsition] = useState("");
-    const [pegLeg, setPegLeg] = useState(true);
-    const [eyePatch, setEyePatch] = useState(true);
-    const [hookHand, setHookHand] =useState(true);
+    const [pegLeg, setPegLeg] = useState(false);
+    const [eyePatch, setEyePatch] = useState(false);
+    const [hookHand, setHookHand] =useState(false);
     const [error, setError] = useState("");
     const [creationStatus, setCreationStatus] = useState("");
 
@@ -71,6 +71,7 @@ const New = () =>{
         setPegLeg(chkLeg.checked)
         setEyePatch(chkEye.checked)
         setHookHand(chkHand.checked)
+        console.log({pata:pegLeg,ojo:eyePatch,grfio:hookHand})
     }
     return(
         <div className="container">
@@ -101,7 +102,7 @@ const New = () =>{
                         </select>
                         
                         <br/>
-                        <input type="checkbox" name="Peg Leg" id="PegLeg" value="Peg Leg" onSelect={chekboxesHandler}></input>
+                        <input type="checkbox" name="Peg Leg" id="PegLeg" value="Peg Leg" onChange={chekboxesHandler}></input>
                         <label htmlFor="Peg Leg">Peg Leg</label><br></br>
                         <input type="checkbox" name="Eye Patch" id="EyePatch" value="Eye Patch" onChange={chekboxesHandler}/>
                         <label htmlFor="Eye Patch">Eye Patch</label><br></br>
